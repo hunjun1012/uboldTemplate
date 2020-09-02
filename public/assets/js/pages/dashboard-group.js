@@ -5,8 +5,231 @@ Website: https://coderthemes.com/
 Contact: support@coderthemes.com
 File: Dashboard 2 init
 */
+//Datepicker
+$('#dash-daterange').flatpickr({
+	altInput: true,
+	mode: "range",
+	altFormat: "F j, y",
+    defaultDate: 'today',
+    locale: 'ko'
+});
+
 
 $( document ).ready(function() {
+
+    var createCombineGraph = function(selector, ticks, labels, datas, colors) {
+		var data = [{
+			label : labels[0],
+			data : datas[0],
+			color : colors[0],
+			bars : {
+				show : true
+			}
+		}, {
+			label : labels[1],
+			data : datas[1],
+			color : colors[1],
+			lines : {
+				show : true
+			},
+			points : {
+				show : true
+			}
+		}];
+		var options = {
+			series : {
+				shadowSize : 0
+			},
+			grid : {
+				hoverable : true,
+				clickable : true,
+				tickColor : "#f9f9f9",
+				borderWidth : 1,
+				borderColor : "rgba(65, 80, 95, 0.07)"
+			},
+			tooltip : true,
+			colors: colors,
+			tooltipOpts : {
+				defaultTheme : false
+			},
+			legend : {
+				position : "ne",
+				margin : [0, -32],
+				noColumns : 0,
+				labelBoxBorderColor : null,
+				labelFormatter : function(label, series) {
+					// just add some space to labes
+					return '' + label + '&nbsp;&nbsp;';
+				},
+				width : 30,
+				height : 2
+			},
+			yaxis : {
+				axisLabel: "Point Value (1000)",
+				tickColor : 'rgba(65, 80, 95, 0.07)',
+				font : {
+					color : '#8391a2'
+				}
+			},
+			xaxis : {
+				axisLabel: "Daily Hours",
+				ticks: ticks,
+				tickColor : 'rgba(65, 80, 95, 0.07)',
+				font : {
+					color : '#8391a2'
+				}
+			}
+		};
+
+		$.plot($(selector), data, options);
+	};
+
+    //
+    // Sales Analytics
+    //
+    var colors = ['#1abc9c', '#4a81d4'];
+    var dataColors = $("#sales-analytics").data('colors');
+    if (dataColors) {
+        colors = dataColors.split(",");
+    }
+
+    var options = {
+        series: [{
+            name: '그룹',
+            type: 'column',
+            data: [1.5, 1.7, 1.9, 1.5]
+        }, {
+            name: '평균',
+            type: 'line',
+            data: [1.7, 1.7, 1.7, 1.8]
+        }],
+        chart: {
+            height: 378,
+            type: 'line',
+        },
+        stroke: {
+            width: [2, 3]
+        },
+        plotOptions: {
+            bar: {
+                columnWidth: '50%'
+            }
+        },
+        colors: colors,
+        dataLabels: {
+            enabled: true,
+            enabledOnSeries: [1]
+        },
+        labels: ['팀1','팀2','팀3','팀4'],
+        xaxis: {
+            type: 'string'
+        },
+        legend: {
+            offsetY: 7,
+        },
+        grid: {
+            padding: {
+            bottom: 20
+            }
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'light',
+                type: "horizontal",
+                shadeIntensity: 0.25,
+                gradientToColors: undefined,
+                inverseColors: true,
+                opacityFrom: 0.75,
+                opacityTo: 0.75,
+                stops: [0, 0, 0]
+            },
+        },
+        yaxis: [{
+            title: {
+                text: 'Net Revenue',
+            },
+
+        }, {
+            opposite: true,
+            title: {
+                text: 'Number of Sales'
+            }
+        }]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#sales-analytics"), options);
+    chart.render();
+
+    //Pie Chart
+    var colors = ["#f412fb", "#4a81d4", "#1abc9c", "#1612fb", "#ba32fb"];
+    var dataColors = $("#pie-chart").data('colors');
+    if (dataColors) {
+        colors = dataColors.split(",");
+    }
+    c3.generate({
+        bindto: '#pie-chart',
+        data: {
+            columns: [
+                ['팀1', 15],
+                ['팀2', 23],
+                ['팀3', 17],
+                ['팀4', 12],
+                ['팀5', 30]
+            ],
+            type : 'pie'
+        },
+        color: {
+            pattern: colors
+        },
+        pie: {
+            label: {
+              show: false
+            }
+        }
+    });
+
+    //Combine graph data
+    var groups = [[0, 1.5], [1, 1.7]];
+    var average = [[0, 1.7], [1, 1.7]];
+    var ticks = [[0, "1팀"], [1, "2팀"]];
+    var combinelabels = ["그룹", "평균"];
+    var combinedatas = [groups, average];
+    var colors = ['#f1556c','#1abc9c'];
+    var dataColors = $("#combine-chart").data('colors');
+    if (dataColors) {
+        colors = dataColors.split(",");
+    }
+    createCombineGraph("#combine-chart", ticks, combinelabels, combinedatas, colors);
+
+
+
+    var colors = ['#1abc9c','#4a81d4'];
+    var dataColors = $("#roated-chart").data('colors');
+    if (dataColors) {
+        colors = dataColors.split(",");
+    }
+    c3.generate({
+        bindto: '#roated-chart',
+        data: {
+            columns: [
+                ['상담원', 1.8, 0.4, 5.3, 1.3, 2.1, 0.5]
+            ],
+            types: {
+                상담원: 'bar'
+            }
+        },
+        color: {
+            pattern: colors
+        },
+        axis: {
+            rotated: true,
+            x: {
+            type: 'categorized'
+            }
+        }
+    });
+
     
     var DrawSparkline = function() {
         // Line Chart
@@ -69,7 +292,7 @@ $( document ).ready(function() {
         $('#total-users').sparkline([20, 40, 30, 10], {
             type: 'pie',
             width: '220',
-            height: '200',
+            height: '220',
             sliceColors: colors
         });
     };

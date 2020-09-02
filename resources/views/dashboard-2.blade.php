@@ -31,14 +31,24 @@
                 <div class="card-box">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-sm bg-blue rounded">
+                            <!-- <div class="avatar-sm bg-blue rounded">
                                 <i class="fe-aperture avatar-title font-22 text-white"></i>
-                            </div>
+                            </div> -->
+                            <h2>팀1</h2>
                         </div>
                         <div class="col-6">
                             <div class="text-right">
-                                <h3 class="text-dark my-1">$<span data-plugin="counterup">12,145</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Income status</p>
+                            <p class="text-muted mb-1 text-truncate">Income status</p>
+                            <h3 class="text-dark my-1">$<span data-plugin="counterup">12,145</span></h3>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h6 class="text-uppercase">Target <span class="float-right">60%</span></h6>
+                        <div class="progress progress-sm m-0">
+                            <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                <span class="sr-only">60% Complete</span>
                             </div>
                         </div>
                     </div>

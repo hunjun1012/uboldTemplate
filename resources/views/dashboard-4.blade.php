@@ -70,21 +70,29 @@
                             <a data-toggle="collapse" href="#cardCollpase3" role="button" aria-expanded="false" aria-controls="cardCollpase3"><i class="mdi mdi-minus"></i></a>
                             <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close"></i></a>
                         </div>
-                        <h4 class="header-title mb-0">Statistics</h4>
+                        <h4 class="header-title mb-0">스트레스 현황</h4>
 
                         <div id="cardCollpase3" class="collapse pt-3 show">
                             <div class="text-center">
-
-                                <div class="row mt-2">
-                                    <div class="col-6">
+                                <h4>이번달 스트레스 현황</h4>
+                                <div class="row mt-2 mb-3">
+                                    <div class="col-4">
+                                        <p class="text-dark font-13 mb-0 text-truncate">Total Sales</p>
                                         <h3 data-plugin="counterup">1,284</h3>
                                         <p class="text-muted font-13 mb-0 text-truncate">Total Sales</p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
+                                        <p class="text-dark font-13 mb-0 text-truncate">Total Sales</p>
+                                        <h3 data-plugin="counterup">7,841</h3>
+                                        <p class="text-muted font-13 mb-0 text-truncate">Open Campaign</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="text-dark font-13 mb-0 text-truncate">Total Sales</p>
                                         <h3 data-plugin="counterup">7,841</h3>
                                         <p class="text-muted font-13 mb-0 text-truncate">Open Campaign</p>
                                     </div>
                                 </div> <!-- end row -->
+                                <h4>월별 스트레스 현황</h4>
                                 <div id="statistics-chart" data-colors="#02c0ce" style="height: 270px;" class="morris-chart mt-3"></div>
 
                             </div>

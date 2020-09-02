@@ -123,7 +123,7 @@
                             </div>
                         </div>
                         <div class="mt-3 chartjs-chart">
-                            <canvas id="projections-actuals-chart" data-colors="#4a81d4,#e3eaef" height="300"></canvas>
+                            <canvas id="projections-actuals-chart" data-colors="#4a81d4,#e3eaef,#e3ea36" height="300"></canvas>
                         </div>
                     </div>
                 </div> <!-- end card-->
@@ -375,5 +375,5 @@
     <!-- Page js-->
     <script src="{{asset('assets/js/pages/jquery.chat.js')}}"></script>
     <script src="{{asset('assets/js/pages/jquery.todo.js')}}"></script>
-    <script src="{{asset('assets/js/pages/dashboard-3.init.js')}}"></script>
+    <script src="{{asset('assets/js/pages/dashboard-3.new.js')}}"></script>
 @endsection
