@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/'], function () {
 Route::get('{first}/{second}/{third}', 'RoutingController@thirdLevel')->name('third');
 Route::get('{first}/{second}', 'RoutingController@secondLevel')->name('second');
 Route::get('{any}', 'RoutingController@root')->name('any');
-
+//메인화면 시작
+Route::get('dashboard/main', 'RoutingController@dashboard_main')->name('dashboard.main');
 // landing
 Route::get('', 'RoutingController@index')->name('index');

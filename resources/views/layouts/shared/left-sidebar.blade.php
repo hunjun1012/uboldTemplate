@@ -49,7 +49,7 @@
                 <li>
                      <a href="{{route('any', 'dashboard-user-detail')}}">
                         <i data-feather="calendar"></i>
-                        <span> 상담원 스트레스 </span>
+                        <span> 상담원 체온 </span>
                     </a>
                 </li>
 
@@ -59,7 +59,7 @@
                 <li>
                     <a href="{{route('second', ['datas','user_stresses'])}}">
                         <i data-feather="calendar"></i>
-                        <span> 상담원 스트레스 이력 </span>
+                        <span> 상담원 체온 이력 </span>
                     </a>
                 </li>
 
@@ -75,14 +75,14 @@
                 <li>
                     <a href="{{route('any', 'dashboard-all')}}"> 
                         <i data-feather="calendar"></i>
-                        <span> 그룹별 스트레스 통계 </span>
+                        <span> 그룹별 체온 통계 </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('any', 'dashboard-all')}}">
                         <i data-feather="calendar"></i>
-                        <span> 상담원별 스트레스 통계</span>
+                        <span> 상담원별 체온 통계</span>
                     </a>
                 </li>
 
